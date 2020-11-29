@@ -21,7 +21,7 @@ interface IResponse {
   page: number
 }
 
-export const getImage = (url: string, size: 'original'|'small' = 'small') => {
+export const getImage = (url: string, size: 'original'|'w500' = 'w500') => {
   return `https://image.tmdb.org/t/p/${size}${url}`
 }
 

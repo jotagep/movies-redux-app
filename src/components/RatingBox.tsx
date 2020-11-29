@@ -20,7 +20,7 @@ export default function RatingBox({ rate, className = ''}: Props) {
 
   return (
     <span className={`${bgColor} px-2 py-2 shadow-lg rounded ${className}`}>
-      {rate}
+      {rate.toFixed(1)}
     </span>
   )
 }

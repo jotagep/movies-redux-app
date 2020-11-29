@@ -1,27 +1,16 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from 'app/rootReducer'
-import { fetchPopularMovies } from './popularMoviesSlice'
+import React from 'react'
 
-import HeroMovie from 'components/HeroMovie'
+import HeroPopularMovie from './HeroPopularMovie'
+import GridPopularMovies from './GridPopularMovies'
+import LoadMore from './LoadMore'
 
 export default function FavoriteMoviesPage() {
 
-  const dispatch = useDispatch()
-  const { movies, pagesLoaded } = useSelector((state: RootState) => state.popularMovies)
-
-  useEffect(() => {
-    if (pagesLoaded === 0) {
-      dispatch(fetchPopularMovies())
-    }
-  }, [pagesLoaded, dispatch])
-
-  const [mostPopular, ...restMovies] = movies
-  console.log(mostPopular, restMovies)
-
   return (
     <div>
-     <HeroMovie movie={mostPopular} pretitle="Most popular at the moment" />
+     <HeroPopularMovie />
+     <GridPopularMovies />
+     <LoadMore />
     </div>
   )
 }

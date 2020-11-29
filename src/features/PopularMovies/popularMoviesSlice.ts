@@ -45,10 +45,10 @@ export const { getPopularMoviesStart, getPopularMoviesSuccess, getPopularMoviesF
 
 export default moviePage.reducer
 
-export const fetchPopularMovies = (): AppThunk => async dispatch => {
+export const fetchPopularMovies = (page: number = 1): AppThunk => async dispatch => {
   try {
     dispatch(getPopularMoviesStart())
-    const movies = await getPopularMovies()
+    const movies = await getPopularMovies(page)
     dispatch(getPopularMoviesSuccess(movies))
   } catch (error) {
     dispatch(getPopularMoviesFailure(error.message))

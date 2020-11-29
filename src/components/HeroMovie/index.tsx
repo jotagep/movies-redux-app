@@ -20,18 +20,16 @@ export default function HeroMovie({
   }
 
   return (
-    <section>
-      <div className={`${style.hero} flex items-center h-screen relative`}>
-        <img src={getImage(movie.backdrop_path, 'original')} alt={`Background from ${movie.title}`} className={style.image} />
-        <Container className="z-10 w-1/2">
-        {pretitle && (<span className="mr-4 text-lg">{pretitle}</span>)}
-        <h2 className="text-title font-lead">{movie.title}</h2>
-        <p className="mb-6">{movie.overview}</p>
-        <ButtonLink to={`/movies/${movie.id}`}>
-          See More
-        </ButtonLink>
-        </Container>
-      </div>
-    </section>
+    <div className={`${style.hero} flex items-center h-screen relative`}>
+      <img src={getImage(movie.backdrop_path, 'original')} alt={`Background from ${movie.title}`} className={style.image} />
+      <Container className="z-10 w-1/2">
+      {pretitle && (<span className="mr-4 text-lg">{pretitle}</span>)}
+      <h2 className="text-title font-lead">{movie.title}</h2>
+      <p className="mb-6">{movie.overview}</p>
+      <ButtonLink to={`/movies/${movie.id}`}>
+        See More
+      </ButtonLink>
+      </Container>
+    </div>
   )
 }
