@@ -36,6 +36,20 @@
     z-index: 3;
   }
 
+  .favorite {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 3;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.25s ease;
+  }
+
   &:hover {
     &::before {
       background: linear-gradient(
@@ -49,6 +63,12 @@
     }
     .rating {
       display: block;
+    }
+    .favorite {
+      display: block;
+      &:hover {
+        background-color: theme('colors.red.600');
+      }
     }
   }
 }

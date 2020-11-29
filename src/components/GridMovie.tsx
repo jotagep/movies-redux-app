@@ -7,13 +7,13 @@ import CardMovie from 'components/CardMovie'
 
 type Props = {
   movies: Movie[] | undefined,
-  title: string
+  title?: string
   className?: string
 }
 
 export default function GridMovie({
   movies,
-  title,
+  title = '',
   className = ''
 }: Props) {
 
@@ -23,7 +23,7 @@ export default function GridMovie({
 
   return (
     <Container className={className}>
-      <h3 className="text-lg uppercase mb-4">{title}</h3>
+      {title && <h3 className="text-lg uppercase mb-4">{title}</h3>}
       <ul className='grid grid-cols-4 gap-4'>
         {movies.map((item, i) => (
           <li className="mb-6" key={i}>

@@ -11,7 +11,7 @@ const FavoriteMoviesPage = lazy(() => import('features/FavoriteMovies/FavoriteMo
 
 function App() {
   return (
-    <div className="bg-darkgray min-h-screen" style={{minHeight: '200vh'}}>
+    <div className="bg-darkgray min-h-screen">
       <Topbar />
       <Suspense fallback={<Loading />}>
         <Switch>
