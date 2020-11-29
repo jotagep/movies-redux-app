@@ -5,7 +5,7 @@ const url = 'https://api.themoviedb.org/3'
 const language= "en-US"
 
 export interface Movie {
-  name: string
+  title: string
   original_name: string
   id: number
   vote_average: number
@@ -19,6 +19,10 @@ interface IResponse {
   results: Movie[]
   total_results: number
   page: number
+}
+
+export const getImage = (url: string, size: 'original'|'small' = 'small') => {
+  return `https://image.tmdb.org/t/p/${size}${url}`
 }
 
 export const getPopularMovies = async (page = 1):Promise<Movie[]> => {

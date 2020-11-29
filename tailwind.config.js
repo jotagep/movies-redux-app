@@ -12,6 +12,9 @@ module.exports = {
         darkgray: '#181818',
         netflix: '#e50914',
       },
+      fontSize: {
+        title: '4.5rem',
+      },
     },
   },
   variants: {},
