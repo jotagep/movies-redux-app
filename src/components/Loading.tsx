@@ -1,8 +1,10 @@
 import React from 'react'
-import ReactLoading from "react-loading";
+import Spinner from 'components/Spinner'
 
 export default function Loading() {
   return (
-    <ReactLoading type="spinningBubbles" color="#e50914" />
+    <div className="flex items-center justify-center w-100 h-100">
+      <Spinner />
+    </div>
   )
 }
