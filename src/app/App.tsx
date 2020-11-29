@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Loading from 'components/Loading';
+import Topbar from 'components/Topbar';
 
 //Pages 
 const PopularMoviesPage = lazy(() => import('features/PopularMovies/PopularMoviesPage'))
@@ -10,7 +11,8 @@ const FavoriteMoviesPage = lazy(() => import('features/FavoriteMovies/FavoriteMo
 
 function App() {
   return (
-    <div className="bg-darkgray h-screen w-screen">
+    <div className="bg-darkgray h-screen w-screen" style={{height: '200vh'}}>
+      <Topbar />
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path="/">
