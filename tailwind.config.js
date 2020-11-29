@@ -1,13 +1,19 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  purge: [
-    'src/**/*.js',
-    'src/**/*.jsx',
-    'src/**/*.ts',
-    'src/**/*.tsx'
-  ],
+  purge: ['src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    fontFamily: {
+      lead: ['Bebas Neue', 'Arial', 'sans-serif'],
+      sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+    },
+    extend: {
+      colors: {
+        darkgray: '#181818',
+        netflix: '#e50914',
+      },
+    },
   },
   variants: {},
-  plugins: []
-};
+  plugins: [],
+}

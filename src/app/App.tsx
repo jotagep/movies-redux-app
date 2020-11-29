@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import Loading from 'components/Loading';
+
+//Pages 
+const PopularMoviesPage = lazy(() => import('features/PopularMovies/PopularMoviesPage'))
+const SelectedMoviePage = lazy(() => import('features/SelectedMovie/SelectedMoviePage'))
+const FavoriteMoviesPage = lazy(() => import('features/FavoriteMovies/FavoriteMoviesPage'))
 
 function App() {
   return (
-    <div className="App text-center">
-      <header className="App-header bg-gray-900 flex flex-col items-center justify-center text-white">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-darkgray h-screen w-screen">
+      <Suspense fallback={<Loading />}>
+        <Switch>
+          <Route exact path="/">
+            <PopularMoviesPage />
+          </Route>
+          <Route path="/movies/:id">
+            <SelectedMoviePage />
+          </Route>
+          <Route exact path="/favorites">
+            <FavoriteMoviesPage />
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 }
