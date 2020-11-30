@@ -9,14 +9,24 @@ export default function FavoriteMoviesPage() {
   const movies = useSelector((state: RootState) => state.favoriteMovies.movies, shallowEqual)
 
   const arrayMovies = Object.values(movies)
-  console.log(arrayMovies)
 
   return (
     <section className="pt-24">
       <Container>
         <h1 className="text-2xl mb-8">Favorite Movies</h1>
       </Container>
-      <GridMovie movies={arrayMovies} />
+      {arrayMovies.length < 1 ? 
+      (
+        <Container>
+          <div className="flex items-center justify-center py-20 rounded-lg border border-gray-800">
+            <span className="text-lg">You don't have favorite movies yet</span>
+          </div>
+        </Container>
+      )
+      : 
+      (
+        <GridMovie movies={arrayMovies} />
+      )}
     </section>
   )
 }

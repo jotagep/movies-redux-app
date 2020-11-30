@@ -22,19 +22,3 @@
   height: 100%;
   object-fit: cover;
 }
-
-.favorite {
-  width: 42px;
-  height: 42;
-  margin-left: 1rem;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid theme('colors.white');
-  transition: background-color 0.25s ease, border-color 0.25s ease;
-
-  &:hover {
-    cursor: pointer;
-    background-color: theme('colors.netflix');
-    border-color: theme('colors.netflix');
-  }
-}

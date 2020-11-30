@@ -1,38 +1,33 @@
 import React from 'react'
 import { getImage, Movie } from 'api/movieApi'
 
-import style from './style.module.scss'
 import Container from 'components/Container'
-import ButtonLink from 'components/ButtonLink'
-import FavoriteBox from 'features/FavoriteMovies/FavoriteBox'
+import Spinner from 'components/Spinner'
+
+import style from './style.module.scss'
 
 type Props = {
   movie: Movie,
-  pretitle?: string
+  children: React.ReactNode
+  classContainer?: string
 }
 
 export default function HeroMovie({
   movie,
-  pretitle = ''
+  children,
+  classContainer = ''
 }: Props) {
 
+  // Skeleton
   if (!movie) {
-    return <h1>Loading...</h1>
+    return <Spinner />
   }
 
   return (
-    <div className={`${style.hero} flex items-center h-screen relative`}>
+    <div className={`${style.hero} pt-24 flex items-center h-screen relative`}>
       <img src={getImage(movie.backdrop_path, 'original')} alt={`Background from ${movie.title}`} className={style.image} />
-      <Container className="z-10 w-1/2">
-        {pretitle && (<span className="mr-4 text-lg">{pretitle}</span>)}
-        <h2 className="text-title font-lead">{movie.title}</h2>
-        <p className="mb-6">{movie.overview}</p>
-        <div className="flex items-center">  
-          <ButtonLink to={`/movies/${movie.id}`}>
-            See More
-          </ButtonLink>
-          <FavoriteBox className={style.favorite} movie={movie} />
-        </div>
+      <Container className={`z-10 ${classContainer}`}>
+        {children}
       </Container>
     </div>
   )

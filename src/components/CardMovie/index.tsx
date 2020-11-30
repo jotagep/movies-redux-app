@@ -5,6 +5,7 @@ import { getImage, Movie } from 'api/movieApi'
 import style from './style.module.scss'
 import RatingBox from 'components/RatingBox'
 import FavoriteBox from 'features/FavoriteMovies/FavoriteBox'
+import Spinner from 'components/Spinner'
 
 type Props = {
   movie: Movie,
@@ -14,9 +15,8 @@ export default function CardMovie({
   movie,
 }: Props) {
 
-  if (!movie) {
-    return <span>Loading...</span>
-  }
+  // Skeleton card
+  if (!movie) return <Spinner />
 
   return (
     <Link to={`/movies/${movie.id}`} className={style.card}>
