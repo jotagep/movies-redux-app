@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { getDetailMovie, getCastMovie, getRelatedMovies, Cast, MovieInfo } from 'api/movieApi'
+import { getDetailMovie, getCastMovie, getRelatedMovies, MovieInfo } from 'api/movieApi'
 import { AppThunk } from 'app/store'
 
 interface SelectedMoviesState {

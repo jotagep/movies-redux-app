@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Loading from 'components/Loading';
 import Topbar from 'components/Topbar';
+import SearchList from 'features/SearchMovies/SearchList';
 
 //Pages 
 const PopularMoviesPage = lazy(() => import('features/PopularMovies/PopularMoviesPage'))
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="bg-darkgray min-h-screen">
       <Topbar />
+      <SearchList />
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path="/">

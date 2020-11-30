@@ -78,3 +78,10 @@ export const getCastMovie = async (id: number): Promise<Cast[]> => {
 
   return response.data.cast
 }
+
+export const getSearchMovie = async (text: string): Promise<Movie[]> => {
+  const query = `${url}/search/movie?api_key=${API_KEY}&language=${language}&query=${text}`
+const response = await axios.get<IResponse>(query)
+
+  return response.data.results
+}

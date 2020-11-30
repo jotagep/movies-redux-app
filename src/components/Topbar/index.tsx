@@ -4,6 +4,7 @@ import useScrollY from 'hooks/useScrollY'
 
 import Container from 'components/Container'
 import ButtonLink from 'components/ButtonLink'
+import SearchBar from 'features/SearchMovies/SearchBar'
 
 import style from './style.module.scss'
 
@@ -22,6 +23,9 @@ export default function Topbar() {
               <Link to="/">
                 <span className={style.title}>Redflix</span>
               </Link>
+            </li>
+            <li>
+              <SearchBar />
             </li>
             <li>
               <ButtonLink 
