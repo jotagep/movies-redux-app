@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import SearchIcon from '../SearchIcon'
-import { fetchSearchMovie, setEmptyMovies, setFocused } from '../selectedMoviesSlice'
+import { fetchSearchMovie, setEmptyMovies, setFocused } from '../searchMoviesSlice'
 
 import style from './style.module.scss'
 
